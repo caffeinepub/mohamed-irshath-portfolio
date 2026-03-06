@@ -342,13 +342,14 @@ function HeroSection() {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Outer glow ring */}
-              <div className="profile-ring w-64 h-64 sm:w-80 sm:h-80">
+              {/* Outer glow ring - passport size (35x45mm ratio ~3:4) */}
+              <div className="profile-ring w-48 h-64 sm:w-60 sm:h-80">
                 <div className="profile-inner w-full h-full">
                   <img
-                    src="/assets/generated/profile-stable.dim_400x400.jpg"
+                    src="/assets/generated/profile-upright.dim_400x400.jpg"
                     alt="Mohamed Irshath S"
                     className="w-full h-full object-cover object-center"
+                    style={{ imageOrientation: "none", transform: "none" }}
                   />
                 </div>
               </div>
@@ -398,13 +399,14 @@ function AboutSection() {
           <motion.div variants={fadeInUp} className="flex justify-center">
             <div className="relative">
               <div
-                className="w-64 sm:w-72 h-64 sm:h-72 rounded-2xl overflow-hidden glow-cyan"
+                className="w-48 sm:w-56 h-64 sm:h-72 rounded-2xl overflow-hidden glow-cyan"
                 style={{ border: "2px solid oklch(0.78 0.18 195 / 0.25)" }}
               >
                 <img
-                  src="/assets/generated/profile-stable.dim_400x400.jpg"
+                  src="/assets/generated/profile-upright.dim_400x400.jpg"
                   alt="Mohamed Irshath S"
                   className="w-full h-full object-cover object-center"
+                  style={{ imageOrientation: "none", transform: "none" }}
                 />
               </div>
               {/* Decorative corner elements */}
