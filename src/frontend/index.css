@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Portfolio: Deep Navy + Electric Cyan theme */
+    --background: 0.13 0.025 250;
+    --foreground: 0.95 0.01 240;
+
+    --card: 0.17 0.03 250;
+    --card-foreground: 0.95 0.01 240;
+
+    --popover: 0.17 0.03 250;
+    --popover-foreground: 0.95 0.01 240;
+
+    /* Cyan accent as primary */
+    --primary: 0.78 0.18 195;
+    --primary-foreground: 0.1 0.025 250;
+
+    --secondary: 0.22 0.04 250;
+    --secondary-foreground: 0.85 0.01 240;
+
+    --muted: 0.2 0.03 250;
+    --muted-foreground: 0.6 0.04 240;
+
+    --accent: 0.78 0.18 195;
+    --accent-foreground: 0.1 0.025 250;
+
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.28 0.04 250;
+    --input: 0.22 0.04 250;
+    --ring: 0.78 0.18 195;
+
+    --chart-1: 0.78 0.18 195;
+    --chart-2: 0.65 0.15 260;
+    --chart-3: 0.7 0.2 160;
+    --chart-4: 0.75 0.17 220;
+    --chart-5: 0.6 0.22 300;
+
+    --sidebar: 0.15 0.03 250;
+    --sidebar-foreground: 0.95 0.01 240;
+    --sidebar-primary: 0.78 0.18 195;
+    --sidebar-primary-foreground: 0.1 0.025 250;
+    --sidebar-accent: 0.22 0.04 250;
+    --sidebar-accent-foreground: 0.85 0.01 240;
+    --sidebar-border: 0.28 0.04 250;
+    --sidebar-ring: 0.78 0.18 195;
+
+    /* Custom portfolio tokens */
+    --navy-deep: 0.11 0.025 252;
+    --navy-mid: 0.16 0.03 250;
+    --navy-light: 0.22 0.04 248;
+    --cyan: 0.78 0.18 195;
+    --cyan-dim: 0.65 0.14 195;
+    --text-primary: 0.96 0.005 240;
+    --text-secondary: 0.72 0.04 240;
+    --gradient-angle: 135deg;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Portfolio Sans', 'DM Sans', 'Nunito Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, oklch(0.78 0.18 195), oklch(0.65 0.2 230));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-navy-deep {
+    background-color: oklch(0.11 0.025 252);
+  }
+
+  .bg-navy-mid {
+    background-color: oklch(0.16 0.03 250);
+  }
+
+  .bg-navy-card {
+    background-color: oklch(0.17 0.03 250);
+  }
+
+  .border-cyan-glow {
+    border-color: oklch(0.78 0.18 195 / 0.3);
+  }
+
+  .glow-cyan {
+    box-shadow:
+      inset 0 1px 0 oklch(0.78 0.18 195 / 0.15),
+      0 0 40px oklch(0.78 0.18 195 / 0.18),
+      0 0 80px oklch(0.78 0.18 195 / 0.07),
+      0 8px 32px oklch(0 0 0 / 0.4);
+  }
+
+  .hero-gradient {
+    background:
+      /* focal bloom behind the text column */
+      radial-gradient(ellipse 70% 60% at 28% 55%,
+        oklch(0.22 0.07 228 / 0.55) 0%,
+        transparent 65%
+      ),
+      /* secondary bloom behind the photo */
+      radial-gradient(ellipse 55% 50% at 75% 45%,
+        oklch(0.19 0.06 210 / 0.45) 0%,
+        transparent 60%
+      ),
+      /* diagonal light sweep */
+      linear-gradient(118deg,
+        oklch(0.09 0.025 260) 0%,
+        oklch(0.14 0.045 245) 35%,
+        oklch(0.11 0.03 235) 65%,
+        oklch(0.08 0.02 255) 100%
+      );
+  }
+
+  .section-divider {
+    background: linear-gradient(90deg, transparent, oklch(0.78 0.18 195 / 0.5), transparent);
+    height: 1px;
+    width: 100%;
+  }
+
+  /* Tier-1: featured / elevated cards (project card, highlighted education, contact form) */
+  .card-tier-1 {
+    background: oklch(0.20 0.035 248);
+    border: 1px solid oklch(0.32 0.05 248);
+    box-shadow:
+      inset 0 1px 0 oklch(0.78 0.18 195 / 0.12),
+      0 4px 24px oklch(0 0 0 / 0.35),
+      0 1px 4px oklch(0 0 0 / 0.25);
+  }
+
+  /* Tier-2: supporting cards (fact chips, secondary education rows, skill pills) */
+  .card-tier-2 {
+    background: oklch(0.165 0.03 250);
+    border: 1px solid oklch(0.24 0.04 250);
+    box-shadow: 0 2px 8px oklch(0 0 0 / 0.2);
+  }
+
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      inset 0 1px 0 oklch(0.78 0.18 195 / 0.18),
+      0 24px 64px oklch(0.78 0.18 195 / 0.12),
+      0 6px 20px oklch(0 0 0 / 0.5);
+    border-color: oklch(0.78 0.18 195 / 0.55);
+  }
+
+  .nav-glass {
+    background: oklch(0.11 0.025 252 / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid oklch(0.78 0.18 195 / 0.12);
+  }
+
+  .skill-pill {
+    background: oklch(0.165 0.03 250);
+    border: 1px solid oklch(0.24 0.04 250);
+    box-shadow: inset 0 1px 0 oklch(0.78 0.18 195 / 0.06), 0 2px 6px oklch(0 0 0 / 0.2);
+    color: oklch(0.85 0.08 195);
+    transition: all 0.22s ease;
+  }
+
+  .skill-pill:hover {
+    background: oklch(0.20 0.04 248);
+    border-color: oklch(0.78 0.18 195 / 0.5);
+    box-shadow: inset 0 1px 0 oklch(0.78 0.18 195 / 0.15), 0 4px 16px oklch(0.78 0.18 195 / 0.08);
+    color: oklch(0.78 0.18 195);
+  }
+
+  .timeline-line {
+    background: linear-gradient(to bottom, oklch(0.78 0.18 195), oklch(0.78 0.18 195 / 0.1));
+  }
+
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .profile-ring {
+    background: conic-gradient(
+      oklch(0.78 0.18 195) 0deg,
+      oklch(0.65 0.2 230) 120deg,
+      oklch(0.78 0.18 195 / 0.2) 180deg,
+      oklch(0.65 0.15 260) 300deg,
+      oklch(0.78 0.18 195) 360deg
+    );
+    padding: 3px;
+    border-radius: 16px;
+    animation: rotate-ring 8s linear infinite;
+  }
+
+  @keyframes rotate-ring {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .profile-inner {
+    border-radius: 13px;
+    overflow: hidden;
+    background: oklch(0.16 0.03 250);
+  }
+}
